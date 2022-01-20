@@ -1,3 +1,8 @@
+output "instance_name" {
+  description = "Name of the EC2 instance"
+  value       = aws_instance.app_server.tags.name
+}
+
 output "instance_id" {
   description = "ID of the EC2 instance"
   value       = aws_instance.app_server.id
