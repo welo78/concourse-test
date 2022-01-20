@@ -1,5 +1,3 @@
-
-
 terraform {
   required_providers {
     aws = {
@@ -8,7 +6,7 @@ terraform {
     }
   }
 
-  required_version = ">= 0.14.9"
+  required_version = ">= 1.1.0"
 }
 
 provider "aws" {
@@ -16,20 +14,11 @@ provider "aws" {
   region  = "eu-central-1"
 }
 
-resource "aws_instance" "app_server02" {
-  ami           = "ami-0d527b8c289b4af7f"
-  instance_type = "t2.micro"
-
-  tags = {
-    Name = "2ndTestServer"
-  }
-}
-
 resource "aws_instance" "app_server" {
   ami           = "ami-0d527b8c289b4af7f"
   instance_type = "t2.micro"
 
   tags = {
-    Name = "ExampleAppServerInstance"
+    Name = var.instance_name
   }
 }
